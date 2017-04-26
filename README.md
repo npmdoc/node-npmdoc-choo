@@ -1,6 +1,6 @@
 # npmdoc-choo
 
-#### api documentation for  [choo (v5.1.5)](https://github.com/yoshuawuyts/choo#readme)  [![npm package](https://img.shields.io/npm/v/npmdoc-choo.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-choo) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-choo.svg)](https://travis-ci.org/npmdoc/node-npmdoc-choo)
+#### basic api documentation for  [choo (v5.3.0)](https://github.com/yoshuawuyts/choo#readme)  [![npm package](https://img.shields.io/npm/v/npmdoc-choo.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-choo) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-choo.svg)](https://travis-ci.org/npmdoc/node-npmdoc-choo)
 
 #### A 4kb framework for creating sturdy frontend applications
 
@@ -27,7 +27,7 @@
     "dependencies": {
         "bel": "^4.5.1",
         "document-ready": "^2.0.1",
-        "nanobus": "^3.0.0",
+        "nanobus": "^3.1.0",
         "nanohistory": "^1.0.0",
         "nanohref": "^1.0.0",
         "nanomorph": "^4.0.0",
@@ -52,10 +52,10 @@
     },
     "directories": {},
     "dist": {
-        "shasum": "c3c0886c4ecfb40eb7e2b5d43ba18060c9f8011a",
-        "tarball": "https://registry.npmjs.org/choo/-/choo-5.1.5.tgz"
+        "shasum": "d2ed1701d4d0b61387420861c915629b09fc5dbf",
+        "tarball": "https://registry.npmjs.org/choo/-/choo-5.3.0.tgz"
     },
-    "gitHead": "2cdf2dcdf0dc5ec47f06f30f0dfd3eff89e64751",
+    "gitHead": "d17b3e480120f3cd809c7f87abfe3a36b62ce29f",
     "homepage": "https://github.com/yoshuawuyts/choo#readme",
     "keywords": [
         "client",
@@ -101,7 +101,8 @@
         "start": "bankai start example --optimize",
         "test": "standard && npm run deps && node test.js"
     },
-    "version": "5.1.5"
+    "version": "5.3.0",
+    "bin": {}
 }
 ```
 
