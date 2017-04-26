@@ -51,7 +51,7 @@
 
         href="https://github.com/yoshuawuyts/choo#readme"
 
-    >choo (v5.1.5)</a>
+    >choo (v5.3.0)</a>
 </h1>
 <h4>A 4kb framework for creating sturdy frontend applications</h4>
 <div class="apidocSectionDiv"><a
@@ -75,15 +75,6 @@
             <a class="apidocElementLiA" href="#apidoc.element.choo.html">
             function <span class="apidocSignatureSpan">choo.</span>html
             <span class="apidocSignatureSpan">(strings)</span>
-            </a>
-
-        </li>
-
-        <li>
-
-            <a class="apidocElementLiA" href="#apidoc.element.choo.toString">
-            function <span class="apidocSignatureSpan">choo.</span>toString
-            <span class="apidocSignatureSpan">()</span>
             </a>
 
         </li>
@@ -115,19 +106,6 @@
             <a class="apidocElementLiA" href="#apidoc.element.choo.html.default">
             function <span class="apidocSignatureSpan">choo.html.</span>default
             <span class="apidocSignatureSpan">(strings)</span>
-            </a>
-
-        </li>
-
-    </ol></li>
-
-    <li class="apidocModuleLi"><a href="#apidoc.module.choo.toString">module choo.toString</a><ol>
-
-        <li>
-
-            <a class="apidocElementLiA" href="#apidoc.element.choo.toString.toString">
-            function <span class="apidocSignatureSpan">choo.</span>toString
-            <span class="apidocSignatureSpan">()</span>
             </a>
 
         </li>
@@ -168,6 +146,7 @@
     toString: toString,
     use: register,
     mount: mount,
+    router: router,
     route: route,
     start: start
   }
@@ -199,14 +178,14 @@
       }
     })
 
-    bus.on(&#x27;render&#x27;, rerender)
+    bus.prependListener(&#x27;render&#x27;, rerender)
 
     if (opts.history !== false) {
       nanohistory(function (href) {
         bus.emit(&#x27;pushState&#x27;)
       })
 
-      bus.on(&#x27;pushState&#x27;, function (href) {
+      bus.prependListener(&#x27;pushState&#x27;, function (href) {
         if (href) window.history.pushState({}, null, href)
         bus.emit(&#x27;render&#x27;)
         setTimeout(function () {
@@ -387,36 +366,6 @@
     var res = []
     if (state === ATTR_VALUE_W) sta ...</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
-    </ul>
-
-
-
-    <h2>
-        <a href="#apidoc.element.choo.toString" id="apidoc.element.choo.toString">
-        function <span class="apidocSignatureSpan">choo.</span>toString
-        <span class="apidocSignatureSpan">()</span>
-        </a>
-    </h2>
-    <ul>
-    <li>description and source-code<pre class="apidocCodePre">toString = function () {
-    return text;
-}</pre></li>
-    <li>example usage<pre class="apidocCodePre">...
-with the tree returned from `app.start()`. If you want to add the app as a child
-to an element, use `app.start()` to obtain the tree and manually append it.
-
-### `tree = app.start()`
-Start the application. Returns a tree of DOM nodes that can be mounted using
-`document.body.appendChild()`.
-
-### `app.<span class="apidocCodeKeywordSpan">toString</span>(location, [state])`
-Render the application to a string. Useful for rendering on the server.
-
-### `choo/html`
-Create DOM nodes from template string literals. Exposes
-[bel](https://github.com/shama/bel). Can be optimized using
-[yo-yoify][yo-yoify].
-...</pre></li>
     </ul>
 
 
@@ -678,7 +627,23 @@ Create DOM nodes from template string literals. Exposes
 
   return el
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+look at how far you&#x27;ve come in the last month. You&#x27;ve grown... tinier? But yet
+you do more? I love you `choo` - _shut up dad_.
+
+### Notable changes
+#### Who&#x27;s the tiniest of them all?
+`choo` is now `5kb` optimized! That&#x27;s `2kb` less compared to v2. _Woah, how?_
+We now support [yo-yoify](https://github.com/shama/yo-yoify) which optimizes
+those lil template tags to `document.<span class="apidocCodeKeywordSpan">createElement</span>()` calls. So not only is it
+smaller, creating elements now has no overhead. Pretty nifty eh? Mad shoutout
+to [Shama](http://twitter.com/shamakry) for building this!
+
+#### Captain Hook(s)
+V3 introduces `hooks` - powerful functions that are called at certain points in
+the refresh cycle. Unlike functions in `models` these functions have unfiltered
+access to all properties, call stacks and more. They&#x27;re super useful when
+...</pre></li>
     </ul>
 
 
@@ -813,39 +778,6 @@ Create DOM nodes from template string literals. Exposes
     var res = []
     if (state === ATTR_VALUE_W) sta ...</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
-    </ul>
-
-
-</div>
-
-<div class="apidocSectionDiv">
-<h1><a href="#apidoc.module.choo.toString" id="apidoc.module.choo.toString">module choo.toString</a></h1>
-
-
-    <h2>
-        <a href="#apidoc.element.choo.toString.toString" id="apidoc.element.choo.toString.toString">
-        function <span class="apidocSignatureSpan">choo.</span>toString
-        <span class="apidocSignatureSpan">()</span>
-        </a>
-    </h2>
-    <ul>
-    <li>description and source-code<pre class="apidocCodePre">function toString() { [native code] }</pre></li>
-    <li>example usage<pre class="apidocCodePre">...
-with the tree returned from `app.start()`. If you want to add the app as a child
-to an element, use `app.start()` to obtain the tree and manually append it.
-
-### `tree = app.start()`
-Start the application. Returns a tree of DOM nodes that can be mounted using
-`document.body.appendChild()`.
-
-### `app.<span class="apidocCodeKeywordSpan">toString</span>(location, [state])`
-Render the application to a string. Useful for rendering on the server.
-
-### `choo/html`
-Create DOM nodes from template string literals. Exposes
-[bel](https://github.com/shama/bel). Can be optimized using
-[yo-yoify][yo-yoify].
-...</pre></li>
     </ul>
 
 
